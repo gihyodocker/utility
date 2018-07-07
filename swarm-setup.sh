@@ -34,3 +34,10 @@ if [ $? -ne 0 ]; then
   echo "worker03: docker swarm join failed." 1>&2
   exit 1
 fi
+
+docker exec -it manager docker node ls
+if [ $? -ne 0 ]; then
+  echo "show swarm node failed." 1>&2
+  exit 1
+fi
+
