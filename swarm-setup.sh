@@ -11,7 +11,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-JOIN_TOKEN=$(docker exec -it manager docker swarm join-token manager --quiet | tr '\r' ' ' | tr '\n' ' ')
+JOIN_TOKEN=$(docker exec -it manager docker swarm join-token worker --quiet | tr '\r' ' ' | tr '\n' ' ')
 if [ $? -ne 0 ]; then
   echo "get swarm join token failed." 1>&2
   exit 1
